@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/api")
-public class ProductController {
+public class ActivitieController {
 
     @GetMapping
     public String getValue(){

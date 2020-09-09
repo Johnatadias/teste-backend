@@ -8,24 +8,44 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-public class Product {
+public class Activitie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long activityId;
 
-    @Column(name = "nome")
-    private String name;
+    @Column(name = "activityTitle")
+    private String activityTitle;
 
-    public Long getId(){
-        return id;
+    @Column(name = "activitySubtitle")
+    private String activitySubtitle;
+
+    public Long getActivityId() {
+        return activityId;
     }
 
-    public String getName() {
-        return name;
+    public String getActivityTitle() {
+        return activityTitle;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setActivityTitle(String activityTitle) {
+        this.activityTitle = activityTitle;
+    }
+
+    public String getActivitySubtitle() {
+        return activitySubtitle;
+    }
+
+    public void setActivitySubtitle(String activitySubtitle) {
+        this.activitySubtitle = activitySubtitle;
+    }
+
+    @Override
+    public String toString() {
+        return "Activitie{" +
+                "activityId=" + activityId +
+                ", activityTitle='" + activityTitle + '\'' +
+                ", activitySubtitle='" + activitySubtitle + '\'' +
+                '}';
     }
 }
