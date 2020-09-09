@@ -1,23 +1,15 @@
 package br.com.suaempresa.model;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "TB_ACTIVITIE")
 public class Activitie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long activityId;
-
-    @Column(name = "activityTitle")
     private String activityTitle;
-
-    @Column(name = "activitySubtitle")
     private String activitySubtitle;
 
     public Long getActivityId() {
