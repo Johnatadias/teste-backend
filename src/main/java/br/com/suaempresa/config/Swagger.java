@@ -35,8 +35,8 @@ public class Swagger {
                 "1.0",
                 "Terms of Service",
                 new Contact("Johnata Dias", "https://github.com/johnatadias",
-                        ""),
-                "Apache License Version 2.0",
-                "https://www.apache.org/licesen.html", new ArrayList<>());
+                        "johnata.182@outlook.com"),
+                "",
+                "", new ArrayList<>());
     }
 }
