@@ -27,17 +27,27 @@ public class ActivitieController {
 
     @GetMapping("/activitie/{id}")
     @ApiOperation(value = "Returns an Activitie by id")
-    public ResponseEntity getByIdActivitie(@PathVariable("id") Long id){
+    public ResponseEntity<Activitie> getByIdActivitie(@PathVariable("id") Long id){
         if(activitieRepository.existsById(id))
-            return ResponseEntity.ok(activitieRepository.findById(id));
+            return ResponseEntity.ok().body(activitieRepository.findById(id).orElse(null));
 
         return ResponseEntity.badRequest().build();
     }
 
     @PostMapping("/activitie")
     @ApiOperation(value = "Creates a new Activitie")
-    public ResponseEntity postActivitie(@RequestBody Activitie activitie){
+    public ResponseEntity<Activitie> postActivitie(@RequestBody Activitie activitie){
         activitieRepository.save(activitie);
         return ResponseEntity.ok(activitie);
+    }
+
+    @ApiOperation(value = "Deletes an Activitie by id")
+    @DeleteMapping("/activitie/{id}")
+    public ResponseEntity<Activitie> deleteActivitie(@PathVariable("id") Long id){
+        if(activitieRepository.existsById(id) && id != null) {
+            activitieRepository.deleteById(id);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
     }
 }
